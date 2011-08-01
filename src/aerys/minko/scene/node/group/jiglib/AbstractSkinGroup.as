@@ -1,6 +1,7 @@
 package aerys.minko.scene.node.group.jiglib
 {
 	import aerys.minko.ns.minko;
+	import aerys.minko.scene.action.group.jiglib.PopPhysicsSkinAction;
 	import aerys.minko.scene.action.group.jiglib.PushPhysicsSkinAction;
 	import aerys.minko.scene.node.group.Group;
 	
@@ -39,7 +40,7 @@ package aerys.minko.scene.node.group.jiglib
 			_body = rigidBody;
 			
 			actions.unshift(PushPhysicsSkinAction.pushPhysicsSkinAction);
-			actions.push(PushPhysicsSkinAction.pushPhysicsSkinAction);
+			actions.push(PopPhysicsSkinAction.popPhysicsSkinAction);
 		}
 	}
 }
