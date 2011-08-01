@@ -1,19 +1,17 @@
 package aerys.minko.scene.node.group.jiglib
 {
 	import aerys.minko.ns.minko;
-	import aerys.minko.scene.action.group.jiglib.SkinAction;
+	import aerys.minko.scene.action.group.jiglib.PushPhysicsSkinAction;
 	import aerys.minko.scene.node.group.Group;
-	import aerys.minko.scene.node.group.TransformGroup;
-	import aerys.minko.type.math.Matrix4x4;
 	
 	import flash.geom.Matrix3D;
 	import flash.geom.Vector3D;
 	
 	import jiglib.data.TriangleVertexIndices;
 	import jiglib.physics.RigidBody;
-	import jiglib.plugin.ISkin3D;
+	import jiglib.plugin.IPhysicsSkin;
 	
-	public class AbstractSkinGroup extends Group implements ISkin3D
+	public class AbstractSkinGroup extends Group implements IPhysicsSkin
 	{
 		use namespace minko;
 		
@@ -40,7 +38,8 @@ package aerys.minko.scene.node.group.jiglib
 			
 			_body = rigidBody;
 			
-			actions.unshift(new SkinAction());
+			actions.unshift(PushPhysicsSkinAction.pushPhysicsSkinAction);
+			actions.push(PushPhysicsSkinAction.pushPhysicsSkinAction);
 		}
 	}
 }
