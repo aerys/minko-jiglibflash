@@ -5,15 +5,15 @@ package aerys.minko.scene.action.group.jiglib
 	import aerys.minko.scene.action.IAction;
 	import aerys.minko.scene.node.IScene;
 	import aerys.minko.scene.visitor.ISceneVisitor;
-	import aerys.minko.type.math.Matrix4x4;
+	import aerys.minko.type.math.Matrix3D;
 	
 	import jiglib.plugin.IPhysicsSkin;
 	
-	public class PushPhysicsSkinAction implements IAction
+	public final class PushPhysicsSkinAction implements IAction
 	{
 		private static const TYPE		: uint				= ActionType.UPDATE_LOCAL_DATA;
 		private static const TMP_VECTOR	: Vector.<Number>	= new Vector.<Number>(16);
-		private static const TMP_MATRIX	: Matrix4x4			= new Matrix4x4();
+		private static const TMP_MATRIX	: Matrix3D			= new Matrix3D();
 		
 		private static var _instance	: PushPhysicsSkinAction	= null;
 		
@@ -28,13 +28,13 @@ package aerys.minko.scene.action.group.jiglib
 							visitor		: ISceneVisitor,
 							renderer	: IRenderer) : Boolean
 		{
-			var skin : IPhysicsSkin = scene as IPhysicsSkin;
+			var skin : IPhysicsSkin = IPhysicsSkin(scene);
 			
 			skin.transform.copyRawDataTo(TMP_VECTOR);
 			TMP_MATRIX.setRawData(TMP_VECTOR);
 			
 			visitor.localData.world.push()
-							 .multiply(TMP_MATRIX);
+							 .prepend(TMP_MATRIX);
 			
 			return true;
 		}

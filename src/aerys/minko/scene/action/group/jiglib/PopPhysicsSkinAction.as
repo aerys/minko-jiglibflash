@@ -6,7 +6,7 @@ package aerys.minko.scene.action.group.jiglib
 	import aerys.minko.scene.node.IScene;
 	import aerys.minko.scene.visitor.ISceneVisitor;
 	
-	public class PopPhysicsSkinAction implements IAction
+	public final class PopPhysicsSkinAction implements IAction
 	{
 		private static const TYPE	: uint	= ActionType.UPDATE_LOCAL_DATA;
 		
