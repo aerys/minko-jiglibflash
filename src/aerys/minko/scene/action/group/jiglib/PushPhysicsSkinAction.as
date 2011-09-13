@@ -11,7 +11,7 @@ package aerys.minko.scene.action.group.jiglib
 	
 	public final class PushPhysicsSkinAction implements IAction
 	{
-		private static const TYPE		: uint				= ActionType.UPDATE_LOCAL_DATA;
+		private static const TYPE		: uint				= ActionType.UPDATE_TRANSFORM_DATA;
 		private static const TMP_VECTOR	: Vector.<Number>	= new Vector.<Number>(16);
 		private static const TMP_MATRIX	: Matrix3D			= new Matrix3D();
 		
@@ -33,7 +33,7 @@ package aerys.minko.scene.action.group.jiglib
 			skin.transform.copyRawDataTo(TMP_VECTOR);
 			TMP_MATRIX.setRawData(TMP_VECTOR);
 			
-			visitor.localData.world.push()
+			visitor.transformData.world.push()
 							 .prepend(TMP_MATRIX);
 			
 			return true;

@@ -8,7 +8,7 @@ package aerys.minko.scene.action.group.jiglib
 	
 	public final class PopPhysicsSkinAction implements IAction
 	{
-		private static const TYPE	: uint	= ActionType.UPDATE_LOCAL_DATA;
+		private static const TYPE	: uint	= ActionType.UPDATE_TRANSFORM_DATA;
 		
 		private static var _instance	: PopPhysicsSkinAction	= null;
 		
@@ -23,7 +23,7 @@ package aerys.minko.scene.action.group.jiglib
 							visitor		: ISceneVisitor,
 							renderer	: IRenderer) : Boolean
 		{
-			visitor.localData.world.pop();
+			visitor.transformData.world.pop();
 			
 			return true;
 		}
